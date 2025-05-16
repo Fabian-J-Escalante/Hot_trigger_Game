@@ -5,8 +5,8 @@ extends Node2D
 @export var spawner_jugador: MultiplayerSpawner
 @onready var world: Level = $Level
 
-func _ready() -> void:
-	spawner_jugador.spawn_function = spawnear_jugador
+#func _ready() -> void:
+#	spawner_jugador.spawn_function = spawnear_jugador
 
 func spawnear_jugador(authority_pid: int) -> void:
 	#autorithy add here of what player model can the user manage
