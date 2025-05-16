@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://ck7ap1qgj33x5"]
+
+[ext_resource type="Script" uid="uid://br2o18hwqy80p" path="res://juego/juego.gd" id="1_kgj2k"]
+[ext_resource type="PackedScene" uid="uid://dc7qmpafb0htc" path="res://mundo/mundo.tscn" id="1_v8xs4"]
+[ext_resource type="PackedScene" uid="uid://duy3ali5lv1yg" path="res://juego/ui/Conexion.tscn" id="2_wvbjv"]
+
+[node name="juego" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kgj2k")
+
+[node name="Mundo" parent="." instance=ExtResource("1_v8xs4")]
+
+[node name="Conexion" parent="." instance=ExtResource("2_wvbjv")]
+layout_mode = 1
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Conexion" parent="UI" instance=ExtResource("2_wvbjv")]
+
+[connection signal="hostear" from="UI/Conexion" to="." method="_on_conexion_hostear"]

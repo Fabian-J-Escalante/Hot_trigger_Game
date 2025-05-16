@@ -1,0 +1,70 @@
+[gd_scene load_steps=3 format=3 uid="uid://duy3ali5lv1yg"]
+
+[ext_resource type="Script" uid="uid://cdjpd5eh7jjol" path="res://juego/ui/enet.gd" id="1_5k0qj"]
+[ext_resource type="Script" uid="uid://cqehtnmwmrejc" path="res://juego/ui/conexion manager.gd" id="1_7wdjw"]
+
+[node name="Conexion" type="Control" node_paths=PackedStringArray("enet")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7wdjw")
+enet = NodePath("MarginContainer/Cajamenu/Enet")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -46.5
+offset_right = 576.0
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 151
+theme_override_constants/margin_right = 190
+
+[node name="Cajamenu" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Enet" type="PanelContainer" parent="MarginContainer/Cajamenu" node_paths=PackedStringArray("host_ip", "host_port")]
+layout_mode = 2
+script = ExtResource("1_5k0qj")
+host_ip = NodePath("VBoxContainer/HBoxContainer/LineEdit")
+host_port = NodePath("VBoxContainer/HBoxContainer/LineEdit2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Cajamenu/Enet"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Cajamenu/Enet/VBoxContainer"]
+layout_mode = 2
+text = "Conectarse con Enet"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Cajamenu/Enet/VBoxContainer"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/Cajamenu/Enet/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "127.0.0.1"
+
+[node name="LineEdit2" type="LineEdit" parent="MarginContainer/Cajamenu/Enet/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "25565"
+
+[node name="Button" type="Button" parent="MarginContainer/Cajamenu/Enet/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Entrar"
+
+[node name="Button2" type="Button" parent="MarginContainer/Cajamenu/Enet/VBoxContainer"]
+layout_mode = 2
+text = "Hostea un juego"
+
+[connection signal="pressed" from="MarginContainer/Cajamenu/Enet/VBoxContainer/HBoxContainer/Button" to="MarginContainer/Cajamenu/Enet" method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Cajamenu/Enet/VBoxContainer/Button2" to="MarginContainer/Cajamenu/Enet" method="_on_button_2_pressed"]
