@@ -53,7 +53,7 @@ Level
 
 ### Setup
 
-1. Abrir el proyecto en Godot 4.
+1. Abre el proyecto en Godot 4.
 2. Revisar rutas de escenas en preload.
 3. Ajustar export variables para IP y puerto en el nodo ConexionManager.
 4. Ejecutar Main.tscn.
@@ -62,7 +62,7 @@ Level
 
 ### Modificación Level.gd
 
-Si `var world` no existe, reemplaza:
+Si `var world` no existe, has esto:
 
 ```gdscript
 @onready var world: Nivel = $Level
